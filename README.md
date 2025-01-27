@@ -105,6 +105,9 @@ sequenceDiagram
     Cliente->>Servidor: GET /no-existe
     Servidor-->>Cliente: 404 Not Found
 ```
+
+## Componentes
+
 ```mermaid
 graph TD
     A[Cliente] -->|HTTP| B[Servidor Web]
@@ -113,24 +116,4 @@ graph TD
     D -->|Responde JSON| E[API REST /data]
     B -->|Devuelve error| F[Manejador de errores 404]
 ```
-```mermaid
-graph TB
-    subgraph Frontend
-        A[HTML: index.html] --> B[CSS: styles.css]
-        A --> C[Imagen: image.jpeg]
-        A --> D[JavaScript: fetchData()]
-    end
-
-    subgraph Servidor
-        E[HttpServer] --> F[Manejador de archivos estáticos]
-        F --> G[Carpeta Webroot]
-        E --> H[API REST /data]
-    end
-
-    A -->|Solicita recursos| E
-    B -->|Estilos aplicados| A
-    D -->|Solicita datos| H
-    H -->|Responde con JSON| D
-```
-
 
