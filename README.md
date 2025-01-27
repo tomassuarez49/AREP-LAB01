@@ -1,6 +1,7 @@
 
 
 # WebServer Java Application
+Tomas Suarez Piratova
 
 Este proyecto implementa un servidor web en Java que maneja solicitudes HTTP para servir archivos estáticos (HTML, CSS, imágenes) y responder a solicitudes REST. Está diseñado para ser simple, eficiente y extensible.
 
