@@ -85,3 +85,52 @@ El proyecto incluye un conjunto de pruebas automatizadas para garantizar el corr
     - Asegura que las rutas inexistentes devuelvan un error 404.
 ![image](https://github.com/user-attachments/assets/b841d35c-03e7-4004-9607-776afa1b616f)
 
+
+
+## Diagrama de Arquitectura
+
+### Secuencia
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant Servidor
+    Cliente->>Servidor: GET /
+    Servidor-->>Cliente: 200 OK (HTML de página principal)
+    Cliente->>Servidor: GET /data
+    Servidor-->>Cliente: 200 OK (JSON con mensaje)
+    Cliente->>Servidor: GET /styles.css
+    Servidor-->>Cliente: 200 OK (Contenido CSS)
+    Cliente->>Servidor: GET /image.jpeg
+    Servidor-->>Cliente: 200 OK (Imagen)
+    Cliente->>Servidor: GET /no-existe
+    Servidor-->>Cliente: 404 Not Found
+```
+```mermaid
+graph TD
+    A[Cliente] -->|HTTP| B[Servidor Web]
+    B -->|Sirve archivos estáticos| C[Carpeta Webroot]
+    B -->|Procesa solicitudes REST| D[HttpServer]
+    D -->|Responde JSON| E[API REST /data]
+    B -->|Devuelve error| F[Manejador de errores 404]
+```
+```mermaid
+graph TB
+    subgraph Frontend
+        A[HTML: index.html] --> B[CSS: styles.css]
+        A --> C[Imagen: image.jpeg]
+        A --> D[JavaScript: fetchData()]
+    end
+
+    subgraph Servidor
+        E[HttpServer] --> F[Manejador de archivos estáticos]
+        F --> G[Carpeta Webroot]
+        E --> H[API REST /data]
+    end
+
+    A -->|Solicita recursos| E
+    B -->|Estilos aplicados| A
+    D -->|Solicita datos| H
+    H -->|Responde con JSON| D
+```
+
+
