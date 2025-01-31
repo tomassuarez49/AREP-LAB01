@@ -16,7 +16,7 @@ Este proyecto implementa un servidor web en Java que maneja solicitudes HTTP par
 
 1.  **Clonar el repositorio:**
      
-    `git clone https://github.com/sebastian2929/AREP_LAB01.git` 
+    `https://github.com/tomassuarez49/AREP-LAB01` 
     
 2.  **Compilar el proyecto con Maven:** :
  
